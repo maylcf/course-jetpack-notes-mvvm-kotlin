@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/noteListFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -25,4 +25,33 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.mayarafelix.jetpacknotes.fragments.NoteListFragment"
+        android:label="NoteListFragment"
+        tools:layout="@layout/fragment_note_list">
+        <action
+            android:id="@+id/action_noteListFragment_to_noteDetailFragment"
+            app:destination="@id/noteDetailFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.mayarafelix.jetpacknotes.fragments.NoteDetailFragment"
+        android:label="NoteDetailFragment"
+        tools:layout="@layout/fragment_note_details">
+        <action
+            android:id="@+id/action_noteDetailFragment_to_noteListFragment"
+            app:destination="@id/noteListFragment" />
+        <argument
+            android:name="noteId"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.mayarafelix.jetpacknotes.login.LoginActivity"
+        android:label="LoginActivity"
+        tools:layout="@layout/fragment_login" />
 </navigation>
